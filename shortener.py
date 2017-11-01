@@ -4,7 +4,8 @@ import requests
 PORT = 49999
 
 SHEET_ID = '1vr6C7CD_RMaNXmxFybG5H6GibrT1Vsx6Jm3sRQnQ2m2'
-DB_URL = 'https://docs.google.com/spreadsheets/d/{0}/export?format=csv&id={0}&gid=0'.format(SHEET_ID)
+DB_URL = ('https://docs.google.com/spreadsheets/d/{0}/export'
+          '?format=csv&id={0}&gid=0').format(SHEET_ID)
 
 app = Flask(__name__)
 
