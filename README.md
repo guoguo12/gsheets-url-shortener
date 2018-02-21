@@ -21,4 +21,4 @@ Ideas for improving the code:
 Then use Python's [`csv` module](https://docs.python.org/3/library/csv.html) to parse the database instead.
 * When a user requests a short URL that isn't in the database, our server responds with an ugly "Internal Server Error" page. Handle this gracefully.
 * Cache database queries using [`functools.lru_cache`](https://docs.python.org/3/library/functools.html#functools.lru_cache), then add a special endpoint for clearing the cache.
-* Keep track of how many times each short URL has been accessed.(Bonus points for writing click-count data back to the spreadsheet.
+* Keep track of how many times each short URL has been accessed. (Bonus points for writing click-count data back to the spreadsheet.)
