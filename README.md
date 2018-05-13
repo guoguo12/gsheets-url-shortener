@@ -13,12 +13,20 @@ This code accompanies ["A Concise URL Shortener in Python"](http://aguo.us/writi
 
 You may also want to register a domain name and point it at your server.
 
+## Deploy to Heroku
+
+1. Install [Heroku cli](https://devcenter.heroku.com/articles/heroku-cli#download-and-install).
+2. Run `heroku login` to login.
+3. Run `heroku create` to create your app.
+4. Run `git push heroku master` to deploy.
+5. Run `heroku ps:scale web=1` to run an instance of the app.
+5. Run `heroku open` to preview.
+
 ## Potential improvements
 
 Ideas for improving the code:
 
 * Find a way to modify the spreadsheet such that the server crashes while parsing the CSV.
 Then use Python's [`csv` module](https://docs.python.org/3/library/csv.html) to parse the database instead.
-* When a user requests a short URL that isn't in the database, our server responds with an ugly "Internal Server Error" page. Handle this gracefully.
 * Cache database queries using [`functools.lru_cache`](https://docs.python.org/3/library/functools.html#functools.lru_cache), then add a special endpoint for clearing the cache.
 * Keep track of how many times each short URL has been accessed. (Bonus points for writing click-count data back to the spreadsheet.)
