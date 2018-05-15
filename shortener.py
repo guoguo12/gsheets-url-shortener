@@ -1,12 +1,15 @@
 from flask import Flask, redirect
+import json
 import requests
 import os
 
-# Define where to redirect by default
-DEFAULT_URL = 'https://www.google.com'
+with open(os.path.dirname(os.path.realpath(__file__)) + '/config.json', 'r') as f:
+    config = json.load(f)
 
+# Define where to redirect by default
+DEFAULT_URL = config['DEFAULT_URL']
 # Google Sheet
-SHEET_ID = '1vr6C7CD_RMaNXmxFybG5H6GibrT1Vsx6Jm3sRQnQ2m2'
+SHEET_ID = config['SHEET_ID']
 DB_URL = ('https://docs.google.com/spreadsheets/d/{0}/export'
           '?format=csv&id={0}&gid=0').format(SHEET_ID)
 
@@ -26,7 +29,10 @@ def look_up_long_url(path):
 
 @app.route("/")
 def home():
-    return redirect(DEFAULT_URL)
+    if config['SHOW_HOME_PAGE'] is True:
+        return "<h1>It works!</h1>"
+    else:
+        return redirect(DEFAULT_URL)
 
 
 @app.route('/<path>')
