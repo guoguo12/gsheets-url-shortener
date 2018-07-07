@@ -26,7 +26,7 @@ You may also want to register a domain name and point it at your server.
 
 1. Install [Heroku cli](https://devcenter.heroku.com/articles/heroku-cli#download-and-install).
 2. Run `heroku login` to login.
-3. Run `heroku create` to create your app.
+3. Run `heroku create --region eu` to create your app in the EU region.
 4. Run `git push heroku master` to deploy.
 5. Run `heroku ps:scale web=1` to run an instance of the app.
 5. Run `heroku open` to preview.
